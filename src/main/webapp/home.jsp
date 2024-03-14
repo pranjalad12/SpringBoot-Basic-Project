@@ -12,5 +12,11 @@
 <input type="text" name="aname"><br>
 <input type="submit"><br>
 </form>
+Ask your query<br>
+<form action="getAlien">
+<input type="text" name="aid"><br>
+<input type="submit"><br>
+</form>
+
 </body>
 </html>

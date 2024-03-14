@@ -6,10 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 
 @Entity
-
 public class Alien {
-	
-	@Id
+@Id
 	private int aid;
 	private String aname;
 	public int getAid() {
@@ -28,4 +26,5 @@ public class Alien {
 	public String toString() {
 		return "Alien [aid=" + aid + ", aname=" + aname + "]";
 	}
+
 }
