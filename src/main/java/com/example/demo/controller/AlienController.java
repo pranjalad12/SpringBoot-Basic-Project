@@ -5,9 +5,11 @@ import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -35,9 +37,24 @@ public class AlienController
 		repo.save(alien);
 		return "home.jsp";
 	}
-	@PostMapping("/addAlien")
+	@PostMapping("/addAlien")   ///for sending raw data use @RequestBody Alien alien
 	public Alien addAliensPost(Alien alien)
 	{
+		repo.save(alien);
+		return alien;
+	}
+	@DeleteMapping("/addAlien/{aid}")   ///for sending raw data use @RequestBody Alien alien
+	public String delAlien(@PathVariable int aid)
+	{
+		Alien alien=repo.getReferenceById(aid);
+		System.out.println("hello");
+		System.out.println(alien);
+		repo.delete(alien);
+		
+		return "deleted";
+	}
+	@PutMapping(path="/alien")
+	public Alien saveOrUpdateAlien(@RequestBody Alien alien) {
 		repo.save(alien);
 		return alien;
 	}
