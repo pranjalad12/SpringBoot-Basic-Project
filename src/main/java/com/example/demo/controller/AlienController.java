@@ -47,9 +47,10 @@ public class AlienController
 	
 	@RequestMapping("/Aliens")
 	@ResponseBody
-	public String getAliens()
+	public List<Alien> getAliens()
 	{
-		return repo.findAll().toString();
+		
+		return repo.findAll();
 	}
 	@RequestMapping("/Aliens/{aid}")
 	@ResponseBody
