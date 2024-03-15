@@ -20,15 +20,27 @@ import com.example.demo.model.Alien;
 ////	@Query("from Alien where aname=?1 order by aname")
 ////	List<Alien> findByAnameSorted(String aname);
 //}
+
+
+
+
+
+//@RepositoryRestResource(collectionResourceRel="aliens",path="aliens")
+//add rest repository while making app 
 public interface AlienRepo extends JpaRepository<Alien, Integer>{
 	
 	
 	//customised query
 	//method name should start with findBy,followed by exact property name,  
-	List<Alien>  findByAname(String aname);
+
+List<Alien>  findByAname(String aname);
 	
 	List<Alien> findByAidGreaterThan(int aid);
 	
 //	@Query("from Alien where aname=?1 order by aname")
 //	List<Alien> findByAnameSorted(String aname);
 }
+
+
+
+
