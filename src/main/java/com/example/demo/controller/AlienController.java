@@ -1,6 +1,7 @@
 package com.example.demo.controller;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -45,7 +46,7 @@ public class AlienController
 	}
 	
 	
-	@RequestMapping("/Aliens")
+	@RequestMapping(path="/Aliens",produces= {"application/xml"})
 	@ResponseBody
 	public List<Alien> getAliens()
 	{
@@ -54,9 +55,9 @@ public class AlienController
 	}
 	@RequestMapping("/Aliens/{aid}")
 	@ResponseBody
-	public String getAlienByAid(@PathVariable("aid") int aid)
+	public Optional<Alien> getAlienByAid(@PathVariable("aid") int aid)
 	{
-		return repo.findById(aid).toString();
+		return repo.findById(aid);
 		
 	}
 }
